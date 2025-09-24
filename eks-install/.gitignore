@@ -2,6 +2,8 @@ terraform.tfstate.backup
 terraform.tfstate
 .terraform
 .terraform.lock.hcl
+ backend/terraform.tfstateS
+backend/terraform.tfstate.backup
 eks-install/backend/.terraform.lock.hcl
 eks-install/backend/terraform.tfstate
 eks-install/backend/terraform.tfstate.backup

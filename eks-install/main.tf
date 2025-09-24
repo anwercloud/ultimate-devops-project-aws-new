@@ -34,7 +34,25 @@ module "eks" {
 
   cluster_name    = var.cluster_name
   cluster_version = var.cluster_version
-  vpc_id          = module.vpc.vpc_id
-  subnet_ids      = module.vpc.private_subnet_ids
-  node_groups     = var.node_groups
+  vpc_id         = module.vpc.vpc_id
+  subnet_ids     = module.vpc.private_subnet_ids
+  node_groups    = var.node_groups_spoke_cluster_2
+}
+
+module "eks_spoke_cluster_1" {
+  source         = "./modules/eks"
+  cluster_name   = "spoke-cluster-1"
+  cluster_version = var.cluster_version
+  vpc_id         = module.vpc.vpc_id
+  subnet_ids     = module.vpc.private_subnet_ids
+  node_groups    = var.node_groups_spoke_cluster_1
+}
+
+module "eks_spoke_cluster_2" {
+  source         = "./modules/eks"
+  cluster_name   = "spoke-cluster-2"
+  cluster_version = var.cluster_version
+  vpc_id         = module.vpc.vpc_id
+  subnet_ids     = module.vpc.private_subnet_ids
+  node_groups    = var.node_groups_spoke_cluster_2
 }
